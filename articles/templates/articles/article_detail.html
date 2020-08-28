@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="article-detail">
+    <div class="article">
+        <span class="article-auth">@{{article.author}}</span><span class="article-date"> · {{article.date}}</span>
+        <h3>{{article.title}}</h3>
+        <p>{{article.body}}</p>
+        {% if article.thumb %}
+            <div class="img-container">
+                <img class="img-center thumb" width="70%" src="{{ article.thumb.url }}">
+            </div>  
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

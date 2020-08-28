@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="login-form">
+        {% load widget_tweaks %}
+        <form class="form-signin" action="/accounts/signup/" method="post">
+
+            {% csrf_token %}
+            <h1 class="h3 mb-3 font-weight-normal">Sign In</h1>
+
+            <label for="username">Username</label>
+            {{ form.username | add_class:"form-control" }}
+            <br>
+            <label for="inputPassword">Password</label>
+            {{form.password1 | add_class:"form-control" }}
+            
+            <label for="inputPassword">Repeat password</label>
+            {{form.password2 | add_class:"form-control" }}
+            <br>
+            <input class="btn btn-lg btn-primary btn-block" type="submit" value="Signup"></input>
+
+        </form>
+    </div>
+
+    <!--<h3>Signup</h3>
+    <form class="site-form" action="/accounts/signup/" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Signup">
+    </form>-->
+
+{% endblock %}

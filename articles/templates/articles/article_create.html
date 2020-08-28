@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content%}
+    <section>
+        
+        {% load widget_tweaks %}
+        <form class="form-signin" action="{% url 'articles:create' %}" method="post" enctype="multipart/form-data">
+
+            {% csrf_token %}
+            <h1 class="h3 mb-3 font-weight-normal">New article!</h1>
+
+            <label for="username">{{ form.title.label }}</label>
+            {{ form.title | add_class:"form-control" }}
+            <br>
+            <label for="inputPassword">{{ form.slug.label }}</label>
+            {{ form.slug | add_class:"form-control" | attr:"readonly:True" }}
+            <br>
+            {{ form.thumb | add_class:"form-control" }}
+            <br>
+            <label for="inputPassword">{{ form.body.label }}</label>
+            {{ form.body | add_class:"form-control" }}
+            <br>
+            <input class="btn btn-lg btn-primary btn-block" type="submit" value="Post article"></input>
+
+        </form>
+
+    </section>
+    <script src="/static/slugify.js"></script>
+
+{% endblock %}

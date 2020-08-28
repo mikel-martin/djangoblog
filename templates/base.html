@@ -1,0 +1,56 @@
+{% load static from staticfiles %}
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <title>TwClone</title>
+
+        <!-- FAVICON -->
+        <link rel="icon" type="image/png" href="https://img.icons8.com/fluent/48/000000/globe-earth.png">
+
+        <!-- BOOTSTRAP -->
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-grid.css' %}">
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-reboot.css' %}">
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-reboot.min.css' %}">
+
+        <!-- CUSTOM -->
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+
+    </head>
+    <body>
+        <div class="wrapper">
+
+            <!-- NAVBAR -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <img class="mr-3" href="{% url 'home' %}" src="https://img.icons8.com/fluent/48/000000/globe-earth.png"/>
+                <a class="navbar-brand" href="{% url 'home' %}">TwClone</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    {% if user.is_authenticated %}
+                        <form class="form-inline my-2 my-md-0" action="{% url 'accounts:logout' %}" method="post">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item mr-3"><a id="new_article_btn" class="nav-link" href="{% url 'articles:create' %}">New Article</a></li>
+                            </ul>
+                            {% csrf_token %}
+                            <button class="btn btn-primary my-2 my-sm-0" type="submit">Logout</button>
+                        </form>
+                    {% else %}
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a class="nav-link" href="{% url 'accounts:signup' %}">Signin</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'accounts:login' %}">Login</a></li>   
+                        </ul>
+                    {% endif %}
+                </div>
+            </nav>
+
+            <!-- MAIN CONTENT -->
+            {% block content %}
+            {% endblock %}
+
+        </div>
+    </body>
+</html>
