@@ -4,10 +4,12 @@
 <div class="article-list">
     {% for article in articles %}
         <div class="article">
-            <span class="article-auth">@{{article.author}}</span><span class="article-date"> · {{article.date}}</span>
-            <h3 class="mt-1"><a href="{% url 'articles:detail' slug=article.slug %}">{{article.title}}</a></h3>
-            <p>{{article.snippet}}</p>
-            <hr>
+            <a href="{% url 'articles:detail' slug=article.slug %}">
+                <span class="article-auth">@{{article.author}}</span><span class="article-date"> · {{article.date}}</span>
+                <h3 class="mt-1">{{article.title}}</h3>
+                <p>{{article.snippet}}</p>
+                <hr>
+            </a>
         </div>
     {% endfor %}
 </div>
