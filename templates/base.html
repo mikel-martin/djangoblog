@@ -25,11 +25,11 @@
             <!-- NAVBAR -->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <img class="mr-3" href="{% url 'home' %}" src="https://img.icons8.com/fluent/48/000000/globe-earth.png"/>
-                <a class="navbar-brand" href="{% url 'home' %}">TwClone</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" href="{% url 'home' %}">MyBlog</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarburger" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse" id="navbarburger">
                     {% if user.is_authenticated %}
                         <form class="form-inline my-2 my-md-0" action="{% url 'accounts:logout' %}" method="post">
                             <ul class="navbar-nav mr-auto">
