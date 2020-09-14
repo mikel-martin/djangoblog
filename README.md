@@ -1,3 +1,4 @@
+<img src="djangoblog.png"/>
 <h1>Blog prototype</h1>
 <h4>Blog created with python django and bootstrap.</h4>
 <p>On this website you will be able to:</p>
